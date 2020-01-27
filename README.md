@@ -11,3 +11,6 @@ DropTheBox is a 2D android game made with Unity. Its main action is tap the scre
  * Download the files from the repository.
  * Start Unity and Open the project.
  * On top of the screen there's a play button, press it to test the project
+
+# Screenshot
+![Game Scene](DropTheBox/Screenshot/dropthebox_GIF.gif)
