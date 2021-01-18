@@ -1,5 +1,5 @@
 # DropTheBox
-DropTheBox is a 2D android game made with Unity. Its main action is tap the screen to drop a box on the platform.
+DropTheBox is a 2D android game made with Unity. Its main action is tap the screen to drop a box on the platform. If the box(s) fall outside of the platfrom then you loose the game.
 
 # Version
  * Unity 2019.2.14f1
