@@ -1,19 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BoxScript : MonoBehaviour
 {
-    Rigidbody2D box_r;
-    float moveSpeed = 2.0f;
-    float max_x = 2f, min_x = -2f;
-    private bool canMove, ignoreCollision, ignoreTrigger, gameOver;
-    // Start is called before the first frame update
+    private Rigidbody2D box_rb;
+    private float moveSpeed = 2.0f;
+    private float max_x = 2f;
+    private float min_x = -2f;
+    private bool canMove;
+    private bool ignoreCollision;
+    private bool ignoreTrigger;
+    private bool gameOver;
+
     void Awake()
     {
-        box_r = GetComponent<Rigidbody2D>();
-        box_r.gravityScale = 0;
+        box_rb = GetComponent<Rigidbody2D>();
+        box_rb.gravityScale = 0;
     }
+
     void Start()
     {
         canMove = true;
@@ -24,7 +27,6 @@ public class BoxScript : MonoBehaviour
         GamePlatController.instance.currentBox = this;
     }
 
-    // Update is called once per frame
     void Update()
     {
         MoveBox();    
@@ -33,7 +35,7 @@ public class BoxScript : MonoBehaviour
     public void DropBox()
     {
         canMove = false;
-        box_r.gravityScale = Random.Range(2, 4);
+        box_rb.gravityScale = Random.Range(2, 4);
     }
 
     public void Landed()
@@ -72,10 +74,6 @@ public class BoxScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D target)
     {
-      
-        //if (ignoreTrigger)
-          //  return;
-
         if (target.gameObject.tag == "GameOver")
         {
             GamePlatController.instance.audioSource.clip = GamePlatController.instance.audioclips[Random.Range(0, GamePlatController.instance.audioclips.Length)];
